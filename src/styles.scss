@@ -1,1 +1,67 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+
+.wrap{
+	width: 900px;
+	margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  background-color: rgb(230, 190, 92);
+}
+
+.wrap-content {
+  padding: 40px 0;
+  justify-content: space-around;
+  background-color: bisque;
+}
+
+img {
+  width: 100px;
+  height: 170px;
+  background-color: cadetblue;
+}
+
+.card {
+  width: 275px;
+  margin-bottom: 20px;
+}
+
+.price, .total {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.img-cart {
+ width: 60px;
+ height: 60px;
+}
+
+.card-cart {
+  display: grid;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  grid: 1fr / 60px 72px 70px 130px 70px 40px;
+}
+
+.card-cart h5,
+.card-cart p {
+  margin-bottom: 0;
+}
+
+.quantity {
+  width: 40px;
+  margin-left: 4px;
+  margin-right: 4px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px;
+}
+.modal-dialog {
+  max-width: 550px;
+}

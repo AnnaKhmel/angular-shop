@@ -1,0 +1,44 @@
+[
+  {
+    "id": 5,
+    "name": "Product",
+    "description": "Integer et bibendum neque, eget vehicula libero. Aenean et mauris.",
+    "price": 142.99,
+    "available": 10
+  },
+  {
+    "id": 7,
+    "name": "Spoon",
+    "description": "Aenean commodo, nibh in dapibus cursus, dolor dolor molestie libero.",
+    "price": 15,
+    "available": 5
+  },
+  {
+    "id": 8,
+    "name": "Phone",
+    "description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames.",
+    "price": 38.75,
+    "available": 3
+  },
+  {
+    "id": 9,
+    "name": "Key",
+    "description": "Quisque non sapien nec nisl blandit posuere. Vivamus posuere vestibulum.",
+    "price": 153,
+    "available": 0
+  },
+  {
+    "id": 15,
+    "name": "Pen",
+    "description": "Sed in nunc sed lectus porttitor facilisis. Quisque pellentesque mollis.",
+    "price": 15,
+    "available": 1000
+  },
+  {
+    "id": 18,
+    "name": "Shirt",
+    "description": "Etiam pharetra velit et diam malesuada, aliquam viverra magna facilisis.",
+    "price": 5,
+    "available": 18
+  }
+]

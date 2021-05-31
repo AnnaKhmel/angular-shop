@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <h4 class="modal-title">Cart</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div *ngFor="let item of items$ | async" class="card-cart">
+        <img src="." class="card-img-top img-cart" alt="">
+        <h5 class="card-title">{{item.product.name}}</h5>
+        <p class="price">{{item.product.price}}<span>$</span></p>
+        <div>
+            <button class="btn btn-info" (click)="onDecreaseClicked(item.product)"><i class="fas fa-minus"></i></button>
+            <input class="quantity" type="text" [value]="item.quantity" readonly>
+            <button class="btn btn-info" (click)="onIncreaseClicked(item.product)" [disabled]="item.product.available === item.quantity"><i class="fas fa-plus"></i></button>
+        </div>
+        <p class="total">{{item.product.price * item.quantity}}<span>$</span></p>
+        <a href="#" class="btn btn-primary" (click)="onDeleteAllClicked(item.product)"> <i class="far fa-trash-alt"></i> </a>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Checkout</button>
+</div>
