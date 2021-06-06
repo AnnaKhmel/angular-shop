@@ -65,3 +65,56 @@ img {
 .modal-dialog {
   max-width: 550px;
 }
+
+.wrap-form {
+  padding: 20px;
+  margin: 60px auto;
+  width: 500px;
+  border: 1px solid #000;
+}
+
+.form-group label {
+  margin-bottom: 1px;
+}
+
+
+.checkout-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.checkout-title {
+  color: #fff;
+  background-color: #5f9ea0;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 0;
+}
+
+.checkout-wrap--left {
+ min-width: 500px;
+}
+.form-group {
+   margin-bottom: 5px;
+}
+.form-group .form-control {
+ border-radius: 0;
+}
+
+
+.checkout-wrap--right {
+  min-width: 350px;
+
+}
+.delivery {
+  margin-bottom: 20px;
+}
+
+.form-check {
+  border:1px solid #00000020;
+  background-color: #fff;
+  padding: 5px;
+  padding-left: 35px;
+}

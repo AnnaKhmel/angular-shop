@@ -1,0 +1,13 @@
+<div class="wrap-form">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Log in</button>
+    </form>
+</div>
