@@ -26,12 +26,8 @@ export const cartReducer = createReducer(
                 return i;
             }
 
-            const quantity = item.quantity < item.product.available
-                ? item.quantity + 1
-                : item.quantity;
-
             return {
-                quantity,
+                quantity: i.quantity + 1,
                 product: i.product
             };
         });

@@ -1,0 +1,19 @@
+<img src="#" class="card-img-top" alt="">
+<div class="card-body" [formGroup]="form">
+    <h5 class="card-title">{{product.name}}</h5>
+    <p class="material">90% cotton, 10% polyester</p>
+    <ul class="color__list">
+        <li *ngFor="let color of colors" class="color__item">
+            <input class="color__item-input" type="radio" [id]="product.id + '-color-' + color" formControlName="colors" [value]="color">
+            <label class="color__item-label" [for]="product.id + '-color-' + color" [style.background-color]="color"></label>
+        </li>
+    </ul>
+    <ul class="size__list">
+        <li *ngFor="let size of sizes" class="size__item">
+            <input class="size__item-input" type="radio" [id]="product.id + '-size-' + size" formControlName="sizes" [value]="size">
+            <label class="size__item-label" [for]="product.id + '-size-' + size">{{size}}</label>
+        </li>
+    </ul>
+    <p class="price">{{product.price}}<span>$</span></p>
+    <button class="btn btn-primary" (click)="onAddToCartClicked(product)" [disabled]="form.invalid"><i class="fas fa-cart-plus"></i></button>
+</div>

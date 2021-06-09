@@ -1,12 +1,77 @@
 <div class="wrap wrap-content">
-  <div *ngFor="let product of products$ | async" class="card">
-    <img src="#" class="card-img-top" alt="">
-      <div class="card-body">
-        <h5 class="card-title">{{product.name}}</h5>
-        <!-- <p class="card-color">{{product.color}}</p>
-        <p class="card-size">{{product.size}}</p> -->
-        <p class="price">{{product.price}}<span>$</span></p>
-        <button class="btn btn-primary" (click)="onAddToCartClicked(product)"><i class="fas fa-cart-plus"></i></button>
+  <div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <img src="img/woman.png" alt="woman" class="nav-tabs__img">
+        <a class="nav-link active" id="home-tab" href="#women" role="tab">WOMEN</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <img src="img/man.png" alt="man" class="nav-tabs__img">
+        <a class="nav-link" id="profile-tab" href="#men" role="tab">MEN</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <img src="img/adults.jpg" alt="adults" class="nav-tabs__img">
+        <a class="nav-link" id="contact-tab" href="#unisex" role="tab">UNISEX ADULTS</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <img src="img/girl.jpg" alt="girl" class="nav-tabs__img">
+        <a class="nav-link" id="contact-tab" href="#girls" role="tab">GIRLS</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <img src="img/boy.jpg" alt="boy" class="nav-tabs__img">
+        <a class="nav-link" id="contact-tab" href="#boys" role="tab">BOYS</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="women" role="tabpanel">
+        <div class="row">
+          <div class="col-2">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#sport" role="tab"
+                aria-controls="v-pills-home" aria-selected="true">sport</a>
+              <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#auto" role="tab"
+                aria-controls="v-pills-profile" aria-selected="false">auto</a>
+              <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#it" role="tab"
+                aria-controls="v-pills-messages" aria-selected="false">IT</a>
+              <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#music" role="tab"
+                aria-controls="v-pills-settings" aria-selected="false">music</a>
+              <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#holiday" role="tab"
+                aria-controls="v-pills-settings" aria-selected="false">holiday</a>
+              <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#humor" role="tab"
+                aria-controls="v-pills-settings" aria-selected="false">humor</a>
+            </div>
+          </div>
+          
+          <div class="col-10">
+            <div class="tab-content" id="v-pills-tabContent">
+
+              <div class="tab-pane fade show active" id="sport" role="tabpanel">
+                <div class="wrap__card">
+                  <div *ngFor="let product of products$ | async" class="card">
+                    <app-product [product]="product"></app-product>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="auto" role="tabpanel">
+                <div class="wrap__card">
+                </div>
+              </div>
+
+              <div class="tab-pane tab-pane__products fade" id="it" role="tabpanel" aria-labelledby="v-pills-messages-tab">ncvbn mvbh</div>
+              <div class="tab-pane tab-pane__products fade" id="music" role="tabpanel" aria-labelledby="v-pills-settings-tab">fjxhihgitfh</div>
+              <div class="tab-pane tab-pane__products fade" id="holiday" role="tabpanel" aria-labelledby="v-pills-settings-tab">hfgidgfd</div>
+              <div class="tab-pane tab-pane__products fade" id="humor" role="tabpanel" aria-labelledby="v-pills-settings-tab">yedrtguiets</div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="tab-pane fade" id="men" role="tabpanel" aria-labelledby="profile-tab">jngkjclvnlkbl</div>
+      <div class="tab-pane fade" id="unisex" role="tabpanel" aria-labelledby="contact-tab">kncghv.hknvm</div>
+      <div class="tab-pane fade" id="girls" role="tabpanel" aria-labelledby="contact-tab">hfrhyftgujygikujhkh</div>
+      <div class="tab-pane fade" id="boys" role="tabpanel" aria-labelledby="contact-tab">ghADVjsdhgbfvjdgvb</div>
+    </div>
   </div>
 </div>

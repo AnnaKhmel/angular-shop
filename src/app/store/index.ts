@@ -3,13 +3,14 @@ import { cartReducer, CartState } from './cart.reducer';
 import { ProductsState, productsListReducer } from './products-list.reducer';
 
 export interface AppState {
-    productsList: ProductsState,
+    products: ProductsState,
     cart: CartState
 };
 
 export const reducers: ActionReducerMap<AppState, any> = {
-    productsList: productsListReducer,
+    products: productsListReducer,
     cart: cartReducer
 };
 
 export const selectCartItems = (state: AppState) => state.cart.items;
+export const selectProducts = (state: AppState) => state.products.products;
