@@ -5,7 +5,7 @@
 @import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 
 .wrap{
-	width: 1050px;
+	width: 1250px;
 	margin: 0 auto;
   
   background-color: #e6be5c;
@@ -20,48 +20,70 @@
   background-color: #ffe4c4;
 }
 
-.nav-tabs {
+.nav-list {
 	display: flex;
 	justify-content: space-between;
 }
-.nav-tabs__img {
+.nav-item__img {
 	width: 155px;
 	height: 155px;
 }
-.nav-link {
+.nav-btn {
 	font-weight: bold;
 	text-align: center;
 	color: #000;
 	text-transform: uppercase;
+  background: none;
+  border: none;
+  display: block;
+  padding: 7px;
 }
-.nav-pills .nav-link.active {
+.nav-btn.active {
+  background-color: #fff;
+  color: #495057;
+  border: 1px solid #dee2e6; 
+}
+.nav-btn:hover {
+  color: #0069d9;
+  cursor: pointer;
+}
+.nav-vertical .nav-btn {
+
+}
+.nav-vertical .nav-btn.active {
 	background-color: #5f9ea0;
+  border-radius: 0.25rem;
+  color: #fff;
 }
-.tab-pane, 
-.tab-content>.active {
-	padding: 20px 0;
-	/* display: flex;
-	justify-content: space-between; */
+.main-content {
+	padding: 30px 0;
 }
 
-.row  .tab-pane{
-	padding: 0;
-}
-.tab-pane .wrap__card {
+
+.card-content .wrap__card {
 	padding:  0;
 	display: flex;
 	justify-content: space-between;
   flex-wrap: wrap;
 }
 
+.card-content h5 {
+  height: 48px;
+}
+
 .card {
-	width: 250px;
+	width: 310px;
 	margin-bottom: 20px;
 }
 
 .card-img-top {
-  height: 248px;
+  height: 308px;
   background-color: #5f9ea0;
+}
+
+.card-body {
+  padding: 17px;
+
 }
 .card-title, .material {
 	margin-bottom: 5px;
@@ -69,19 +91,20 @@
 ul {
 	list-style-type: none;
 	padding: 0;
-	/* display: flex;
-	justify-content: space-between;
-	margin-bottom: 5px; */
 }
 .color__list,
 .size__list {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	margin-bottom: 5px;
+}
+.color__item {
+  margin-right: 5px;
 }
 .color__item-label {
 	width: 25px;
 	height: 25px;
+  margin-bottom:  0px;
 }
 .color__item-input {
   position: absolute;
@@ -93,12 +116,10 @@ ul {
 .color__item-input:hover {
   cursor: pointer;
 }
-.color__item-label--white{
-	border: 1px solid #000;
+.white {
+  border: 1px solid #000;
 }
-/* .color__item--white:hover{
-	border: 1px solid #007bff;
-} */
+
 .color__item-input:hover + .color__item-label {
 	opacity: 0.8;
 	border: 1px solid #5f9ea0;
@@ -125,20 +146,21 @@ ul {
   z-index: 2;
   opacity: 0;
   height: 27px;
-  width: 30px;
+  width: 10px;
   cursor: pointer;
 }
-.size__item-input--years {
-  width: 82px;
-}
+
 input[type="radio"]:checked + label {
   color:#007bff;
   font-weight: bold;
 }
-
+.size__item-label {
+  margin-bottom: 0px;
+}
 .price, .total, .summary {
   font-weight: bold;
   font-size: 18px;
+  margin-bottom: .5rem;
 }
 
 .img-cart-modal {

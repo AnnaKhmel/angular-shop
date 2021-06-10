@@ -17,7 +17,7 @@ export class CustomerService {
 
     signup(customer: Omit<Customer, "id">): Observable<Customer> {
         return this.httpClient
-            .post<Customer>(`${environment.apiBaseUrl}/customer/signup`, customer)
+            .post<Customer>(`${environment.apiBaseUrl}/customers/signup`, customer)
             .pipe(
                 first(),
                 catchError(this.errorHandlerService.handleError<Customer>("signup"))
@@ -27,7 +27,7 @@ export class CustomerService {
     login(email: Pick<Customer, "email">, password: Pick<Customer, "password">)
         : Observable<{ token: string; customerId: Pick<Customer, "id">; }> {
         return this.httpClient
-            .post<{ token: string; customerId: Pick<Customer, "id">; }>(`${environment.apiBaseUrl}/customer/login`, { email, password })
+            .post<{ token: string; customerId: Pick<Customer, "id">; }>(`${environment.apiBaseUrl}/customers/login`, { email, password })
             .pipe(
                 first(),
                 catchError(

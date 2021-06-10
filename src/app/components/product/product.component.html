@@ -1,11 +1,11 @@
 <img src="#" class="card-img-top" alt="">
 <div class="card-body" [formGroup]="form">
     <h5 class="card-title">{{product.name}}</h5>
-    <p class="material">90% cotton, 10% polyester</p>
+    <p class="material">{{product.material}}</p>
     <ul class="color__list">
         <li *ngFor="let color of colors" class="color__item">
             <input class="color__item-input" type="radio" [id]="product.id + '-color-' + color" formControlName="colors" [value]="color">
-            <label class="color__item-label" [for]="product.id + '-color-' + color" [style.background-color]="color"></label>
+            <label class="color__item-label"  [ngClass]="{'white': color === 'white' }" [for]="product.id + '-color-' + color" [style.background-color]="color"></label>
         </li>
     </ul>
     <ul class="size__list">

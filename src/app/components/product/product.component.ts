@@ -42,11 +42,12 @@ export class ProductComponent implements OnInit {
       id: product.id,
       name: product.name,
       price: product.price,
+      material: product.material,
       options: [{
         productId: product.id,
         color,
         size,
-        gender: Gender.boys
+        gender: product.options[0].gender
       }]
     };
 
