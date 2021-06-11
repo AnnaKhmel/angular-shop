@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import * as CategoriesActions from './categories.actions';
-import { Category } from '../models';
+import * as CategoriesActions from './../actions/categories.actions';
+import { Category } from '../../models';
 
 export interface CategoriesState {
     categories: Category[]

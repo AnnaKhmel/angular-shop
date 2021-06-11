@@ -1,13 +1,8 @@
-<div class="modal-header">
-    <h4 class="modal-title">Cart</h4>
-    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
 <div class="modal-body">
     <div *ngFor="let item of items$ | async" class="card-cart">
         <img src="." class="card-img-top img-cart" alt="">
-        <h5 class="card-title">{{item.product.name}}</h5>
+        <h5 class="card-title">{{item.product.name}}, {{item.product.options[0].gender}}</h5>
+        <p class="options">{{item.product.options[0].color}}, {{item.product.options[0].size}}</p>
         <p class="price">{{item.product.price}}<span>$</span></p>
         <div>
             <button class="btn btn-info" (click)="onDecreaseClicked(item.product)"><i class="fas fa-minus"></i></button>
@@ -19,5 +14,5 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Checkout</button>
+    <a type="button" class="btn btn-outline-dark" routerLink="/checkout">Checkout</a>
 </div>

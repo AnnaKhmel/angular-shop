@@ -4,9 +4,9 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
 import { map, mergeMap, catchError, exhaustMap, withLatestFrom } from 'rxjs/operators';
 import { CategoryService, ProductService } from './../services';
-import * as ProductsActions from './products.actions';
-import * as CategoriesActions from './categories.actions';
-import * as FilterActions from './filter.actions';
+import * as ProductsActions from './actions/products.actions';
+import * as CategoriesActions from './actions/categories.actions';
+import * as FilterActions from './actions/filter.actions';
 import { AppState, selectGender } from '.';
 
 @Injectable()

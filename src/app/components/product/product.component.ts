@@ -3,9 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store';
 import { Product } from 'src/app/models/product';
-import { addItem } from 'src/app/store/cart.actions';
+import { addItem } from 'src/app/store/actions/cart.actions';
 import { CartItem } from 'src/app/models/cart-item';
-import { Gender } from 'src/app/models';
 
 @Component({
   selector: 'app-product',
@@ -16,8 +15,8 @@ export class ProductComponent implements OnInit {
   @Input() product!: Product;
 
   form: FormGroup;
-  colors!: string[];
-  sizes!: string[];
+  colors!: Array<{ color: string, disabled?: boolean }>;
+  sizes!: Array<{ size: string, disabled?: boolean }>;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,8 +29,11 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.colors = [...new Set(this.product.options.map(o => o.color))];
-    this.sizes = [...new Set(this.product.options.map(o => o.size))];
+    this.colors = [...new Set(this.product.options.map(o => o.color))]
+      .map(color => ({ color }))
+
+    this.sizes = [...new Set(this.product.options.map(o => o.size))]
+      .map(size => ({ size }))
   }
 
   onAddToCartClicked(product: Product) {

@@ -1,24 +1,24 @@
-<div class="wrap wrap-content">
-  <div>
-    <ul class="nav nav-list nav-tabs">
-      <li *ngFor="let gender of genders" class="nav-item" role="presentation">
-        <img [src]="'img/' + gender + '.png'" [alt]="gender" class="nav-item__img">
-        <button [ngClass]="{ active: (gender$ | async) === gender }" class="nav-btn" (click)="onGenderClick(gender)">{{gender}}</button>
-      </li>
-    </ul>
-    <div class="main-content">
-      <div class="row">
-        <div class="col-2">
-          <div *ngFor="let category of categories$ | async" class="nav nav-vertical flex-column">
-            <button [ngClass]="{ active: (category$ | async) === category.id }" class="nav-btn" (click)="onCategoryClick(category)">{{category.name}}</button>
-          </div>
+<div>
+  <ul class="nav nav-list nav-tabs">
+    <li *ngFor="let gender of genders" class="nav-item" role="presentation">
+      <img [src]="'img/' + gender + '.png'" [alt]="gender" class="nav-item__img">
+      <button [ngClass]="{ active: (gender$ | async) === gender }" class="nav-btn"
+        (click)="onGenderClick(gender)">{{gender}}</button>
+    </li>
+  </ul>
+  <div class="main-content">
+    <div class="row">
+      <div class="col-2">
+        <div *ngFor="let category of categories$ | async" class="nav nav-vertical flex-column">
+          <button [ngClass]="{ active: (category$ | async) === category.id }" class="nav-btn"
+            (click)="onCategoryClick(category)">{{category.name}}</button>
         </div>
-        <div class="col-10">
-          <div class="card-content">
-            <div class="wrap__card">
-              <div *ngFor="let product of products$ | async" class="card">
-                <app-product [product]="product"></app-product>
-              </div>
+      </div>
+      <div class="col-10">
+        <div class="card-content">
+          <div class="wrap__card">
+            <div *ngFor="let product of products$ | async" class="card">
+              <app-product [product]="product"></app-product>
             </div>
           </div>
         </div>

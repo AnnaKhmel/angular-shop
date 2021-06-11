@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import * as FilterActions from './filter.actions';
-import { Gender } from '../models';
+import * as FilterActions from './../actions/filter.actions';
+import { Gender } from '../../models';
 
 export interface FilterState {
     gender: Gender;

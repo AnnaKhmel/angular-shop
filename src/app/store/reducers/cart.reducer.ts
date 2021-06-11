@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { CartItem } from '../models';
-import * as CartActions from './cart.actions';
+import { CartItem } from '../../models';
+import * as CartActions from '../actions/cart.actions';
 
 export interface CartState {
     items: CartItem[]
@@ -13,7 +13,10 @@ export const initialState: CartState = {
 export const cartReducer = createReducer(
     initialState,
     on(CartActions.addItem, (state, { cartItem }) => {
-        const item = state.items.find(i => i.product.id === cartItem.product.id);
+        const item = state.items.find(i => i.product.id === cartItem.product.id
+            && i.product.options[0].color === cartItem.product.options[0].color
+            && i.product.options[0].size === cartItem.product.options[0].size
+            && i.product.options[0].gender === cartItem.product.options[0].gender);
 
         if (!item) {
             return {
@@ -22,14 +25,17 @@ export const cartReducer = createReducer(
         }
 
         const items = state.items.map(i => {
-            if (i.product.id !== cartItem.product.id) {
-                return i;
+            if (i.product.id === cartItem.product.id
+                && i.product.options[0].color === cartItem.product.options[0].color
+                && i.product.options[0].size === cartItem.product.options[0].size
+                && i.product.options[0].gender === cartItem.product.options[0].gender) {
+                return {
+                    quantity: i.quantity + 1,
+                    product: i.product
+                };
             }
 
-            return {
-                quantity: i.quantity + 1,
-                product: i.product
-            };
+            return i;
         });
 
         return { items };
@@ -46,7 +52,7 @@ export const cartReducer = createReducer(
                     if (i.product.id !== productId) {
                         return i;
                     }
-       
+
                     return {
                         quantity: newQuantity,
                         product: i.product

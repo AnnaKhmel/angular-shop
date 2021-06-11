@@ -1,21 +1,18 @@
 import { Component } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Store } from '@ngrx/store';
 import { CartItem } from 'src/app/models/cart-item';
 import { Product } from 'src/app/models/product';
 import { AppState, selectCartItems } from 'src/app/store';
-import { addItem, deleteAll, deleteItem } from 'src/app/store/cart.actions';
+import { addItem, deleteAll, deleteItem } from 'src/app/store/actions/cart.actions';
 
 @Component({
-  selector: 'cart-modal',
-  templateUrl: './cart-modal-content.component.html',
-  styleUrls: ['./cart-modal-content.component.scss']
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.scss']
 })
-export class CartModalContent {
+export class CartComponent {
   items$ = this.store.select(selectCartItems);
 
   constructor(
-    public activeModal: NgbActiveModal,
     private store: Store<AppState>
   ) {}
 

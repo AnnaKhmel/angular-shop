@@ -1,8 +1,8 @@
 import { ActionReducerMap, createSelector } from '@ngrx/store';
-import { cartReducer, CartState } from './cart.reducer';
-import { ProductsState, productsReducer } from './products.reducer';
-import { CategoriesState, categoriesReducer } from './categories.reducer';
-import { filterReducer, FilterState } from './filter.reducer';
+import { cartReducer, CartState } from './reducers/cart.reducer';
+import { ProductsState, productsReducer } from './reducers/products.reducer';
+import { CategoriesState, categoriesReducer } from './reducers/categories.reducer';
+import { filterReducer, FilterState } from './reducers/filter.reducer';
 
 export interface AppState {
     products: ProductsState;

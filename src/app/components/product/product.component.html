@@ -3,15 +3,15 @@
     <h5 class="card-title">{{product.name}}</h5>
     <p class="material">{{product.material}}</p>
     <ul class="color__list">
-        <li *ngFor="let color of colors" class="color__item">
-            <input class="color__item-input" type="radio" [id]="product.id + '-color-' + color" formControlName="colors" [value]="color">
-            <label class="color__item-label"  [ngClass]="{'white': color === 'white' }" [for]="product.id + '-color-' + color" [style.background-color]="color"></label>
+        <li *ngFor="let c of colors" class="color__item">
+            <input class="color__item-input" type="radio" [id]="product.id + '-color-' + c.color" formControlName="colors" [value]="c.color">
+            <label class="color__item-label" [ngClass]="{'white': c.color === 'white' }" [for]="product.id + '-color-' + c.color" [style.background-color]="c.color"></label>
         </li>
     </ul>
     <ul class="size__list">
-        <li *ngFor="let size of sizes" class="size__item">
-            <input class="size__item-input" type="radio" [id]="product.id + '-size-' + size" formControlName="sizes" [value]="size">
-            <label class="size__item-label" [for]="product.id + '-size-' + size">{{size}}</label>
+        <li *ngFor="let s of sizes" class="size__item">
+            <input class="size__item-input" type="radio" [id]="product.id + '-size-' + s.size" formControlName="sizes" [value]="s.size">
+            <label class="size__item-label" [for]="product.id + '-size-' + s.size">{{s.size}}</label>
         </li>
     </ul>
     <p class="price">{{product.price}}<span>$</span></p>

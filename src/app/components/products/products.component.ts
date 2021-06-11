@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { tap } from 'rxjs/operators';
 import { AppState, selectCategories, selectCategory, selectGender, selectProducts } from 'src/app/store';
-import { loadCategories } from 'src/app/store/categories.actions';
-import { setCategory, setGender } from 'src/app/store/filter.actions';
+import { loadCategories } from 'src/app/store/actions/categories.actions';
+import { setCategory, setGender } from 'src/app/store/actions/filter.actions';
 import { Category, Gender } from 'src/app/models';
 
 @Component({
