@@ -5,14 +5,15 @@
         <p class="options">{{item.product.options[0].color}}, {{item.product.options[0].size}}</p>
         <p class="price">{{item.product.price}}<span>$</span></p>
         <div>
-            <button class="btn btn-info" (click)="onDecreaseClicked(item.product)"><i class="fas fa-minus"></i></button>
+            <button class="btn btn-info" (click)="onDecreaseClicked(item)"><i class="fas fa-minus"></i></button>
             <input class="quantity" type="text" [value]="item.quantity" readonly>
-            <button class="btn btn-info" (click)="onIncreaseClicked(item.product)"><i class="fas fa-plus"></i></button>
+            <button class="btn btn-info" (click)="onIncreaseClicked(item)"><i class="fas fa-plus"></i></button>
         </div>
         <p class="total">{{(item.product.price * item.quantity).toFixed(2)}}<span>$</span></p>
-        <button class="btn btn-primary" (click)="onDeleteAllClicked(item.product)"> <i class="far fa-trash-alt"></i> </button>
+        <button class="btn btn-primary" (click)="onDeleteAllClicked(item)"> <i class="far fa-trash-alt"></i> </button>
     </div>
 </div>
 <div class="modal-footer">
+    <p *ngIf="selectCartItemsTotal$ | async as selectCartItemsTotal" class="summary">Total: {{selectCartItemsTotal.toFixed(2)}}$</p>
     <a type="button" class="btn btn-outline-dark" routerLink="/checkout">Checkout</a>
 </div>

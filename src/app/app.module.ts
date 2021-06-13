@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -17,6 +17,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/product/product.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AuthInterceptorService } from './services';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     LoginComponent,
     ProductsComponent,
     ProductComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,13 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([ShopEffects])
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

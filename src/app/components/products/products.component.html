@@ -1,7 +1,7 @@
 <div>
   <ul class="nav nav-list nav-tabs">
     <li *ngFor="let gender of genders" class="nav-item" role="presentation">
-      <img [src]="'img/' + gender + '.png'" [alt]="gender" class="nav-item__img">
+      <img [src]="'/assets/' + gender + '.jpg'" [alt]="gender" class="nav-item__img">
       <button [ngClass]="{ active: (gender$ | async) === gender }" class="nav-btn"
         (click)="onGenderClick(gender)">{{gender}}</button>
     </li>

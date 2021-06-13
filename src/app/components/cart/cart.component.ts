@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { CartItem } from 'src/app/models/cart-item';
-import { Product } from 'src/app/models/product';
-import { AppState, selectCartItems } from 'src/app/store';
+import { AppState, selectCartItems, selectCartItemsTotal } from 'src/app/store';
 import { addItem, deleteAll, deleteItem } from 'src/app/store/actions/cart.actions';
 
 @Component({
@@ -11,25 +10,21 @@ import { addItem, deleteAll, deleteItem } from 'src/app/store/actions/cart.actio
 })
 export class CartComponent {
   items$ = this.store.select(selectCartItems);
+  selectCartItemsTotal$ = this.store.select(selectCartItemsTotal);
 
   constructor(
     private store: Store<AppState>
   ) {}
 
-  onDecreaseClicked(product: Product) {
-    this.store.dispatch(deleteItem({ productId: product.id }));
+  onDecreaseClicked(cartItem: CartItem) {
+    this.store.dispatch(deleteItem({ cartItem }));
   }
 
-  onIncreaseClicked(product: Product) {
-    const cartItem: CartItem = {
-      product,
-      quantity: 1
-    };
-    
+  onIncreaseClicked(cartItem: CartItem) {
     this.store.dispatch(addItem({ cartItem }));
   }
 
-  onDeleteAllClicked(product: Product) {
-    this.store.dispatch(deleteAll({ productId: product.id }));
+  onDeleteAllClicked(cartItem: CartItem) {
+    this.store.dispatch(deleteAll({ cartItem }));
   }
 }

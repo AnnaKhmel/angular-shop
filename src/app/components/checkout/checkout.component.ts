@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState, selectCartItems, selectCartItemsTotal } from 'src/app/store';
 
 @Component({
   selector: 'app-checkout',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-
-  constructor() { }
+  items$ = this.store.select(selectCartItems);
+  selectCartItemsTotal$ = this.store.select(selectCartItemsTotal);
+  
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
   }
-
 }

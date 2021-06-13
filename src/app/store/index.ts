@@ -34,6 +34,10 @@ export const selectCartItemsCount = createSelector(
     selectCartItems,
     items => items.reduce((acc, { quantity }) => acc + quantity, 0)
 );
+export const selectCartItemsTotal = createSelector(
+    selectCartItems,
+    items => items.reduce((acc, item) => acc + (item.quantity * item.product.price), 0)
+);
 
 export const selectFilter = (state: AppState) => state.filter;
 
@@ -49,7 +53,15 @@ export const selectCategory = createSelector(
 
 export const selectCustomer = (state: AppState) => state.customer;
 
+export const selectCustomerId = createSelector(
+    selectCustomer,
+    ({ customerId }) => customerId
+);
 export const selectCustomerIsAuthenticated = createSelector(
     selectCustomer,
     state => state.isAuthenticated
+);
+export const selectCustomerToken = createSelector(
+    selectCustomer,
+    ({ token }) => token
 );

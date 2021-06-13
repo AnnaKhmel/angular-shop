@@ -3,7 +3,7 @@ import { CartItem } from '../../models';
 import * as CartActions from '../actions/cart.actions';
 
 export interface CartState {
-    items: CartItem[]
+    items: CartItem[];
 }
 
 export const initialState: CartState = {
@@ -40,31 +40,31 @@ export const cartReducer = createReducer(
 
         return { items };
     }),
-    on(CartActions.deleteItem, (state, { productId }) => {
-        let newCartItems: CartItem[] = state.items;
-        const item = state.items.find(i => i.product.id === productId);
-
-        if (item) {
-            const newQuantity = item.quantity - 1;
-
-            if (newQuantity) {
-                newCartItems = state.items.map(i => {
-                    if (i.product.id !== productId) {
-                        return i;
-                    }
-
+    on(CartActions.deleteItem, (state, { cartItem }) => {
+        const items = state.items
+            .map(i => {
+                if (i.product.id === cartItem.product.id
+                    && i.product.options[0].color === cartItem.product.options[0].color
+                    && i.product.options[0].size === cartItem.product.options[0].size
+                    && i.product.options[0].gender === cartItem.product.options[0].gender) {
                     return {
-                        quantity: newQuantity,
+                        quantity: i.quantity - 1,
                         product: i.product
                     };
-                });
-            }
-            else {
-                newCartItems = state.items.filter(i => i.product.id !== productId);
-            }
-        }
+                }
 
-        return { items: newCartItems };
+                return i;
+            })
+            .filter(i => i.quantity > 0);
+
+        return { items };
     }),
-    on(CartActions.deleteAll, (state, { productId }) => ({ items: state.items.filter(i => i.product.id !== productId) }))
+    on(CartActions.deleteAll, (state, { cartItem }) => {
+        const items = state.items.filter(i => !(i.product.id === cartItem.product.id
+            && i.product.options[0].color === cartItem.product.options[0].color
+            && i.product.options[0].size === cartItem.product.options[0].size
+            && i.product.options[0].gender === cartItem.product.options[0].gender));
+        
+        return { items };
+    })
 );
