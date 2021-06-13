@@ -10,7 +10,7 @@
             <button class="btn btn-info" (click)="onIncreaseClicked(item.product)"><i class="fas fa-plus"></i></button>
         </div>
         <p class="total">{{(item.product.price * item.quantity).toFixed(2)}}<span>$</span></p>
-        <a href="#" class="btn btn-primary" (click)="onDeleteAllClicked(item.product)"> <i class="far fa-trash-alt"></i> </a>
+        <button class="btn btn-primary" (click)="onDeleteAllClicked(item.product)"> <i class="far fa-trash-alt"></i> </button>
     </div>
 </div>
 <div class="modal-footer">

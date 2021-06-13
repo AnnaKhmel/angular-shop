@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { CustomerService } from "src/app/services";
+import { Store } from "@ngrx/store";
+import { AppState, selectCustomer } from "src/app/store";
+import { signIn } from "src/app/store/actions/customer.actions";
 
 @Component({
   selector: "app-login",
@@ -10,10 +11,11 @@ import { CustomerService } from "src/app/services";
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  customerInfo$ = this.store.select(selectCustomer);
 
   constructor(
     private fb: FormBuilder,
-    private customerService: CustomerService
+    private store: Store<AppState>
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -25,8 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.customerService
-      .login(this.loginForm.value.email, this.loginForm.value.password)
-      .subscribe();
+    const { email, password } = this.loginForm.value;
+    this.store.dispatch(signIn({ email, password }));
   }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Store } from '@ngrx/store';
+import { AppState, selectCartItemsCount, selectCustomerIsAuthenticated } from 'src/app/store';
+import { logout } from 'src/app/store/actions/customer.actions';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,15 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  cartItemsCount$ = this.store.select(selectCartItemsCount);
+  customerIsAuthenticated$ = this.store.select(selectCustomerIsAuthenticated);
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
+  }
+
+  onLogoutClick(): void {
+    this.store.dispatch(logout());
   }
 }

@@ -1,7 +1,16 @@
 <header class="header">
   <div class="wrap wrap-header">
-    <a type="button" class="btn btn-primary" routerLink="/cart">
-      <i class="fas fa-cart-plus"></i> Cart
+    <a *ngIf="!(customerIsAuthenticated$ | async)" class="btn btn-link" routerLink="/login">
+      Sign In
+    </a>
+    <button *ngIf="(customerIsAuthenticated$ | async)" class="btn btn-link" (click)="onLogoutClick()">
+      Logout
+    </button>
+    <a *ngIf="(customerIsAuthenticated$ | async)" class="btn btn-link" routerLink="/profile">
+      Profile
+    </a>
+    <a class="btn btn-link" routerLink="/cart">
+      Cart <ng-container *ngIf="cartItemsCount$ | async as cartItemsCount">({{cartItemsCount}})</ng-container>
     </a>
   </div>
 </header>

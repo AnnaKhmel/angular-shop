@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { CustomerService } from "src/app/services";
+import { Store } from "@ngrx/store";
+import { Customer } from "src/app/models";
+import { AppState, selectCustomer } from "src/app/store";
+import { signUp } from "src/app/store/actions/customer.actions";
 
 @Component({
   selector: 'app-signup',
@@ -10,10 +12,11 @@ import { CustomerService } from "src/app/services";
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
+  customerInfo$ = this.store.select(selectCustomer);
 
   constructor(
     private fb: FormBuilder,
-    private customerService: CustomerService
+    private store: Store<AppState>
   ) {
     this.signupForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -28,9 +31,7 @@ export class SignupComponent implements OnInit {
   }
 
   signup(): void {
-    this.customerService.signup(this.signupForm.value).subscribe(msg => {
-      console.log(msg);
-      //this.router.navigate(["profile"]);
-    });
+    const customer: Customer = { ...this.signupForm.value };
+    this.store.dispatch(signUp({ customer }));
   }
 }

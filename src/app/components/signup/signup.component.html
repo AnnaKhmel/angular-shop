@@ -33,8 +33,12 @@
         <button type="submit" class="btn btn-primary" [disabled]="signupForm.invalid">Sign up</button>
         <a routerLink="/" class="btn btn-success">Cancel</a>
     </form>
+    
     <p>
         <span>Already have an account?&nbsp;</span>
         <a routerLink="/login">Log in!</a>
     </p>
+
+    <span *ngIf="customerInfo$ | async as customerInfo"
+        class="error-message text-danger">{{customerInfo?.errorMessage}}</span>
 </div>
