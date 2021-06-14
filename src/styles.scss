@@ -7,12 +7,11 @@
 .wrap{
 	width: 1250px;
 	margin: 0 auto;
-  
   background-color: #e6be5c;
 }
 .wrap-header {
 	display: flex;
-  	justify-content: flex-end;
+  	justify-content: space-between;
 }
 
 .wrap-content {
@@ -24,10 +23,12 @@
 	display: flex;
 	justify-content: space-between;
 }
+
 .nav-item__img {
 	width: 155px;
 	height: 155px;
 }
+
 .nav-btn {
 	font-weight: bold;
 	text-align: center;
@@ -37,19 +38,20 @@
   border: none;
   display: block;
   padding: 7px;
+  width: 100%;
 }
+
 .nav-btn.active {
   background-color: #fff;
   color: #495057;
   border: 1px solid #dee2e6; 
 }
+
 .nav-btn:hover {
   color: #0069d9;
   cursor: pointer;
 }
-.nav-vertical .nav-btn {
 
-}
 .nav-vertical .nav-btn.active {
 	background-color: #5f9ea0;
   border-radius: 0.25rem;
@@ -62,9 +64,8 @@
 
 .card-content .wrap__card {
 	padding:  0;
-	display: flex;
-	justify-content: space-between;
-  flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 }
 
 .card-content h5 {
@@ -116,6 +117,7 @@ ul {
 .color__item-input:hover {
   cursor: pointer;
 }
+
 .white {
   border: 1px solid #000;
 }
@@ -157,7 +159,8 @@ input[type="radio"]:checked + label {
 .size__item-label {
   margin-bottom: 0px;
 }
-.price, .total, .summary {
+.price, .options,
+.total, .summary {
   font-weight: bold;
   font-size: 18px;
   margin-bottom: .5rem;
@@ -177,7 +180,7 @@ input[type="radio"]:checked + label {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  grid: 1fr / 100px 250px 70px 200px 70px 40px;
+  grid: 1fr / 100px 250px  50px 50px 200px 70px 40px;
 }
 .card-cart-modal {
   grid: 1fr / 60px 72px 70px 130px 70px 40px;
@@ -198,13 +201,37 @@ input[type="radio"]:checked + label {
 .modal-dialog {
   max-width: 550px;
 }
+.btn-link {
+  color: #5f9ea0;
+  outline: none;
+  font-weight: bold;
+  text-decoration: none;
+}
 
+.btn-link:hover,
+.btn-link:focus,
+.btn:active, .btn:focus {
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+}
 
-.btn-outline-dark, .btn-primary, .btn-info {
+.btn-primary.disabled, .btn-primary:disabled  {
+  background-color: #5f9ea0;
+	border-color: #5f9ea0;
+}
+.btn-outline-dark, .btn-primary, 
+.btn-info, .btn-cart {
 	background-color: #5f9ea0;
-	border-color: #609d9f;
+	border-color: #5f9ea0;
   color: #fff;
+  outline: none;
+  box-shadow: none;
+}
 
+.btn-cart span {
+  margin: 0 5px;
+  font-weight: bold;
 }
 
 .wrap-form {
@@ -218,7 +245,15 @@ input[type="radio"]:checked + label {
   margin-bottom: 1px;
 }
 
-
+.group-btn {
+  margin-top: 10px;
+}
+.btn-danger {
+  margin-left: 10px;
+}
+.wrap-form  p {
+  margin-bottom: 0px;
+}
 .checkout-wrap {
   display: flex;
   justify-content: space-between;

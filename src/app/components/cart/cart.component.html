@@ -1,6 +1,6 @@
 <div class="modal-body">
     <div *ngFor="let item of items$ | async" class="card-cart">
-        <img src="." class="card-img-top img-cart" alt="">
+        <img [src]="'/assets/' + item.product.id + '.jpg'" class="card-img-top img-cart" alt="">
         <h5 class="card-title">{{item.product.name}}, {{item.product.options[0].gender}}</h5>
         <p class="options">{{item.product.options[0].color}}, {{item.product.options[0].size}}</p>
         <p class="price">{{item.product.price}}<span>$</span></p>

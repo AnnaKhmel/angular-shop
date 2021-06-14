@@ -29,11 +29,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>Ukraine</option>
-                        <option>Poland</option>
-                    </select>
+                    <input type="text" class="form-control" id="inputState" value="Ukraine">
                 </div>
             </div>
             <div class="form-row">
@@ -104,17 +100,11 @@
 <h5 class="checkout-title">order</h5>
 <div class="modal-body">
     <div *ngFor="let item of items$ | async" class="card-cart">
-        <img src="." class="card-img-top img-cart" alt="">
+        <img [src]="'/assets/' + item.product.id + '.jpg'" class="card-img-top img-cart" alt="">
         <h5 class="card-title">{{item.product.name}}, {{item.product.options[0].gender}}</h5>
         <p class="options">{{item.product.options[0].color}}, {{item.product.options[0].size}}</p>
         <p class="price">{{item.product.price}}<span>$</span></p>
-        <!-- <div>
-                <button class="btn btn-info" (click)="onDecreaseClicked(item)"><i class="fas fa-minus"></i></button>
-                <input class="quantity" type="text" [value]="item.quantity" readonly>
-                <button class="btn btn-info" (click)="onIncreaseClicked(item)"><i class="fas fa-plus"></i></button>
-            </div> -->
         <p class="total">{{(item.product.price * item.quantity).toFixed(2)}}<span>$</span></p>
-        <!-- <button class="btn btn-primary" (click)="onDeleteAllClicked(item)"> <i class="far fa-trash-alt"></i> </button> -->
     </div>
 </div>
 <div class="modal-footer">

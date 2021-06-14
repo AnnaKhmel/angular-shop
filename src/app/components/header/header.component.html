@@ -1,16 +1,23 @@
 <header class="header">
   <div class="wrap wrap-header">
-    <a *ngIf="!(customerIsAuthenticated$ | async)" class="btn btn-link" routerLink="/login">
-      Sign In
-    </a>
-    <button *ngIf="(customerIsAuthenticated$ | async)" class="btn btn-link" (click)="onLogoutClick()">
-      Logout
-    </button>
-    <a *ngIf="(customerIsAuthenticated$ | async)" class="btn btn-link" routerLink="/profile">
-      Profile
-    </a>
-    <a class="btn btn-link" routerLink="/cart">
-      Cart <ng-container *ngIf="cartItemsCount$ | async as cartItemsCount">({{cartItemsCount}})</ng-container>
-    </a>
+    <div class="header__logo">
+      <a routerLink="/" class="logo__link">
+        <img src="https://via.placeholder.com/110x38" alt="logo">
+      </a>
+    </div>
+    <div>
+      <a *ngIf="!(customerIsAuthenticated$ | async)" class="btn btn-link" routerLink="/login">
+        Sign In
+      </a>
+      <button *ngIf="(customerIsAuthenticated$ | async)" class="btn btn-link" (click)="onLogoutClick()">
+        Logout <i class="fas fa-sign-out-alt"></i>
+      </button>
+      <a *ngIf="(customerIsAuthenticated$ | async)" class="btn btn-link" routerLink="/profile">
+        Profile
+      </a>
+      <a class="btn btn-link btn-cart" routerLink="/cart">
+        <i class="fas fa-cart-plus"></i><ng-container *ngIf="cartItemsCount$ | async as cartItemsCount"><span>{{cartItemsCount}}</span></ng-container>
+      </a>
+    </div>
   </div>
 </header>

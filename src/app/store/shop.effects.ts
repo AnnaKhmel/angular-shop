@@ -86,7 +86,10 @@ export class ShopEffects {
   logout$ = createEffect(() =>
     this.actions$.pipe(
       ofType(CustomerActions.logout),
-      tap(() => localStorage.removeItem('app_shop_customer'))
+      tap(() => {
+        localStorage.removeItem('app_shop_customer');
+        this.router.navigateByUrl('/');
+      })
     ), { dispatch: false });
 
   constructor(

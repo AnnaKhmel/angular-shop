@@ -8,8 +8,10 @@
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" formControlName="password">
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Log in</button>
-        <a routerLink="/" class="btn btn-success">Cancel</a>
+        <div class="group-btn">
+            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Log in</button>
+            <a routerLink="/" class="btn btn-danger">Cancel</a>
+        </div>  
     </form>
     
     <p>
